@@ -1,9 +1,4 @@
-package model
-
-import (
-	"fmt"
-	"time"
-)
+package models
 
 type RecordStatus string
 
@@ -15,6 +10,8 @@ const (
 
 	// RecordTypeSleep represent record im sleep
 	RecordTypeSleep = "sleep"
+	// RecordTypeFitness represent record im Fitness
+	RecordTypeFitness = "fitness"
 )
 
 const (
@@ -45,38 +42,7 @@ type Record struct {
 	UpdatedAt        int64            `json:"updated_at" db:"updated_at" gpo:"updated_at"`
 }
 
-const (
-	recordTable  = `record`
-	recordFields = `record_id, user_id, record_submission,record_type, status, source,
-		remark, created_at, updated_at`
-)
-
-type RecordMgr struct {
-}
-
-// NewRecordMgr create record manager instance
-func NewRecordMgr() *RecordMgr {
-	return &RecordMgr{}
-}
-
-func (m *RecordMgr) CreateRecord(record *Record) (int64, error) {
-	createSQL := fmt.Sprintf("insert into `%s` ( %s ) values ( %s )",
-		recordTable, recordFields, preArgs(recordFields))
-
-	now := time.Now().Unix()
-
-	// set default parameters
-	// record.RecordID = 1
-	// record.RecordSubmission = RecordSubmissionManual
-	// record.RecordType = RecordTypeSleep
-	// record.Status = RecordStatusValid
-	record.CreatedAt = now
-	record.UpdatedAt = now
-	// record.Source = `from test`
-
-	if _, err := db.Exec(createSQL, preData(recordFields, record)...); err != nil {
-		return 0, err
-	}
-
-	return record.RecordID, nil
+//设置表名
+func (Record) TableName() string {
+	return "record"
 }
