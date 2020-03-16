@@ -1,4 +1,4 @@
-package model
+package databases
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"strings"
 
-	"auto4play/config"
+	"github.com/lzyyauto/auto4play/config"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"

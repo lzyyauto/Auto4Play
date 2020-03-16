@@ -3,8 +3,6 @@ package model
 import (
 	"fmt"
 	"time"
-
-	"wps.cn/plus-order/errors"
 )
 
 type RecordStatus string
@@ -77,7 +75,7 @@ func (m *RecordMgr) CreateRecord(record *Record) (int64, error) {
 	// record.Source = `from test`
 
 	if _, err := db.Exec(createSQL, preData(recordFields, record)...); err != nil {
-		return 0, errors.ErrCreateOrder.Bind(err)
+		return 0, err
 	}
 
 	return record.RecordID, nil
