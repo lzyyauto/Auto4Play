@@ -1,6 +1,11 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"../services"
+	"github.com/gin-gonic/gin"
+)
 
 // Init 初始化路由
 func Init() error {
@@ -15,7 +20,9 @@ func Init() error {
 				"message": "pong",
 			})
 		})
-		// v1.POST("/login", user.Login)
+		v1.GET("/helloworld", HelloWordGet)
+		v1.GET("/record/:thing", services.InsertRecord)
+		v1.GET("/pong", services.GetTestGin)
 	}
 
 	// v2 := router.Group("/v2")
@@ -28,4 +35,8 @@ func Init() error {
 	// 	v2.POST("/reply2", post.Reply2)
 	// }
 	return router.Run(":8000")
+}
+
+func HelloWordGet(c *gin.Context) {
+	c.String(http.StatusOK, "hello world get")
 }

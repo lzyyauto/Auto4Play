@@ -1,15 +1,16 @@
 package repository
 
 import (
-	db "github.com/lzyyauto/auto4play/databases"
-	"github.com/lzyyauto/auto4play/models"
+	db "../databases"
+
+	"../models"
 )
 
-const (
-	recordTable  = `record`
-	recordFields = `record_id, user_id, record_submission,record_type, status, source,
-		remark, created_at, updated_at`
-)
+// const (
+// 	recordTable  = `record`
+// 	recordFields = `record_id, user_id, record_submission,record_type, status, source,
+// 		remark, created_at, updated_at`
+// )
 
 type RecordMgr struct {
 }

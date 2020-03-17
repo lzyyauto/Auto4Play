@@ -69,16 +69,10 @@
 			"revisionTime": "2020-02-16T10:24:04Z"
 		},
 		{
-			"checksumSHA1": "1jKXAI3z7h/k1qqWWsZv/HM2JAc=",
-			"path": "github.com/jmoiron/sqlx",
-			"revision": "2ba0fc60eb4a54030f3a6d73ff0a047349c7eeca",
-			"revisionTime": "2019-12-03T22:28:53Z"
-		},
-		{
-			"checksumSHA1": "i2O6Ji8ZL6q+EL+4cu/ftBytqZg=",
-			"path": "github.com/jmoiron/sqlx/reflectx",
-			"revision": "2ba0fc60eb4a54030f3a6d73ff0a047349c7eeca",
-			"revisionTime": "2019-12-03T22:28:53Z"
+			"checksumSHA1": "METENicaBX0IccmArMzt+iL9Ge4=",
+			"path": "github.com/lzyyauto/auto4play/services",
+			"revision": "61e44452c08834151bfd9519e968656822b374bc",
+			"revisionTime": "2020-03-16T18:54:25Z"
 		},
 		{
 			"checksumSHA1": "CQ794EIFp/4zTVi4redzOXOPY8k=",

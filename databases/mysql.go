@@ -3,9 +3,9 @@ package databases
 import (
 	"fmt"
 
+	"../config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/lzyyauto/auto4play/config"
 )
 
 var DB *gorm.DB
