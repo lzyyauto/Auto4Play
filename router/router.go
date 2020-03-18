@@ -3,11 +3,11 @@ package router
 import (
 	"net/http"
 
-	"../services"
 	"github.com/gin-gonic/gin"
+	"github.com/lzyyauto/auto4play/services"
 )
 
-// Init 初始化路由
+// Init 初始化路由godef -debug -f main.go net.ResolveTCPAddr
 func Init() error {
 	router := gin.Default()
 	// CrossDomain跨域处理，options请求处理

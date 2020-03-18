@@ -1,9 +1,9 @@
 package repository
 
 import (
-	db "../databases"
+	db "github.com/lzyyauto/auto4play/databases"
 
-	"../models"
+	"github.com/lzyyauto/auto4play/models"
 )
 
 // const (

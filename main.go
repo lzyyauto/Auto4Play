@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"./router"
+	"github.com/lzyyauto/auto4play/router"
 )
 
 func main() {
