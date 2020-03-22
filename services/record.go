@@ -1,21 +1,12 @@
 package services
 
 import (
-	"fmt"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"github.com/lzyyauto/auto4play/models"
+	"github.com/lzyyauto/auto4play/repository"
 )
 
-func InsertRecord(c *gin.Context) {
-	thing := c.Param("thing")
-	fmt.Printf("thing:%s", thing)
-
-	c.String(http.StatusOK, thing)
-}
-
-func GetTestGin(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "oh",
-	})
+func RecordCommit(record *models.Record) []error {
+	recordMgr := repository.NewRecordMgr()
+	errs := recordMgr.CreateRecord(record)
+	return errs
 }

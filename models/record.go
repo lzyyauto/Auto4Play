@@ -1,5 +1,9 @@
 package models
 
+import (
+	"time"
+)
+
 type RecordStatus string
 
 type RecordType string
@@ -38,8 +42,8 @@ type Record struct {
 	Status           RecordStatus     `json:"status" db:"status" gpo:"status"`
 	Source           string           `json:"source" db:"source" gpo:"source"`
 	Remark           string           `json:"remark" db:"remark" gpo:"remark"`
-	CreatedAt        int64            `json:"created_at" db:"created_at" gpo:"created_at"`
-	UpdatedAt        int64            `json:"updated_at" db:"updated_at" gpo:"updated_at"`
+	CreatedAt        time.Time        `json:"created_at" db:"created_at" gpo:"created_at"`
+	UpdatedAt        time.Time        `json:"updated_at" db:"updated_at" gpo:"updated_at"`
 }
 
 //设置表名

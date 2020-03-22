@@ -1,10 +1,8 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
-	"github.com/lzyyauto/auto4play/services"
+	"github.com/lzyyauto/auto4play/controllers"
 )
 
 // Init 初始化路由godef -debug -f main.go net.ResolveTCPAddr
@@ -20,9 +18,8 @@ func Init() error {
 				"message": "pong",
 			})
 		})
-		v1.GET("/helloworld", HelloWordGet)
-		v1.GET("/record/:thing", services.InsertRecord)
-		v1.GET("/pong", services.GetTestGin)
+
+		v1.POST("/record/commit", controllers.RecordCommit)
 	}
 
 	// v2 := router.Group("/v2")
@@ -35,8 +32,4 @@ func Init() error {
 	// 	v2.POST("/reply2", post.Reply2)
 	// }
 	return router.Run(":8000")
-}
-
-func HelloWordGet(c *gin.Context) {
-	c.String(http.StatusOK, "hello world get")
 }
