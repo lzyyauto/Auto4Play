@@ -19,6 +19,8 @@ func Init() error {
 			})
 		})
 
+		v1.GET("/record/quick/:thing", controllers.QuickRecordCommit)
+
 		v1.POST("/record/commit", controllers.RecordCommit)
 	}
 

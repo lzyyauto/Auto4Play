@@ -6,5 +6,9 @@
         "dbname":"",
         "username":"",
         "password":""
+    },
+    "bark":{
+        "barkurl":"",
+        "barkkey":""
     }
 }
