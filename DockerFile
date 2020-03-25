@@ -1,5 +1,5 @@
 FROM golang:latest
-MAINTAINER lzyyauto "lzyyauto@gmail.com"
+LABEL lzyyauto "lzyyauto@gmail.com"
 
 RUN go get github.com/lzyyauto/Auto4Play
 WORKDIR $GOPATH/src/github.com/lzyyauto/Auto4Play
