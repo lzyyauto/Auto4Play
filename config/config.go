@@ -2,12 +2,9 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
+	"flag"
 	"io/ioutil"
 	"log"
-	"os"
-	"path/filepath"
-	"runtime"
 )
 
 type Environment string
@@ -56,17 +53,12 @@ type BarkConfiguration struct {
 func init() {
 	var configBytes []byte
 	var err error
-	configENV := os.Getenv("CONFIG")
-	if configENV == "" {
-		_, f, _, _ := runtime.Caller(0)
-		cfgFile := fmt.Sprintf("%s/config.json", filepath.Dir(f))
-		configBytes, err = ioutil.ReadFile(cfgFile)
-		if err != nil {
-			log.Fatalf("Load configuration failed: %s\n", err)
-		}
-	} else {
-		configBytes = []byte(configENV)
+	configPath := flag.String("config", "./config/config.json", "配置文件路径")
+	configBytes, err = ioutil.ReadFile(*configPath)
+	if err != nil {
+		log.Fatalf("Load configuration failed: %s\n", err)
 	}
+
 	var conf configuration
 	if err = json.Unmarshal(configBytes, &conf); err != nil {
 		log.Fatalf("Load configuration error: %s\n", err)
