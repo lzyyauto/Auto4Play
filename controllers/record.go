@@ -12,7 +12,11 @@ func RecordCommit(c *gin.Context) {
 	var commitRecord models.Record
 	err := c.BindJSON(&commitRecord)
 	if err != nil {
-		fmt.Print("提交参数解析错误")
+		fmt.Printf("提交参数解析错误,提交参数:%v", c)
+		c.JSON(500, gin.H{
+			"message": "提交参数解析错误",
+		})
+		return
 	}
 	errs := services.RecordCommit(&commitRecord)
 	if len(errs) > 0 {
