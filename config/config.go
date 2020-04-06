@@ -23,7 +23,8 @@ var (
 	// AlipayCfg    *AlipayConfiguration
 	// WechatPayCfg *WechatPayConfiguration
 	// AccountCfg   *AccountConfiguration
-	BarkCfg *BarkConfiguration
+	BarkCfg    *BarkConfiguration
+	ServiceCfg *ServiceConfiguration
 )
 
 type configuration struct {
@@ -34,7 +35,8 @@ type configuration struct {
 	// AlipayCfg    *AlipayConfiguration    `json:"alipay"`
 	// WechatPayCfg *WechatPayConfiguration `json:"wechatpay"`
 	// AccountCfg   *AccountConfiguration   `json:"account"`
-	BarkCfg *BarkConfiguration `json:"bark"`
+	BarkCfg    *BarkConfiguration    `json:"bark"`
+	ServiceCfg *ServiceConfiguration `json:"service"`
 }
 
 type MysqlConfiguration struct {
@@ -48,6 +50,11 @@ type MysqlConfiguration struct {
 type BarkConfiguration struct {
 	BarkUrl string `json:"barkurl"`
 	BarkKey string `json:"barkkey"`
+}
+
+type ServiceConfiguration struct {
+	Host string `json:"host"`
+	Port string `json:"port"`
 }
 
 func init() {
@@ -66,6 +73,7 @@ func init() {
 
 	MysqlCfg = conf.MysqlCfg
 	BarkCfg = conf.BarkCfg
+	ServiceCfg = conf.ServiceCfg
 
 	configLog, _ := json.MarshalIndent(conf, "", "  ")
 	log.Printf("[INFO] Configuration load success: \n%s\n", configLog)
