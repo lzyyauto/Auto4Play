@@ -1,11 +1,13 @@
 FROM golang:latest
 LABEL lzyyauto "lzyyauto@gmail.com"
+RUN mkdir -p /auto4play
+WORKDIR /auto4play
 
-RUN go get github.com/lzyyauto/Auto4Play
-WORKDIR $GOPATH/src/github.com/lzyyauto/Auto4Play
-COPY . $GOPATH/src/github.com/lzyyauto/Auto4Play
+ADD . /auto4play
+ADD ./config/config.json /auto4play/config
+
 RUN go build .
-ADD ./config/config.json $WORKDIR/
 
 EXPOSE 8000
-ENTRYPOINT [ "./auto4Play", "-config", "$WORKDIR/config.json" ]
+
+CMD ["./auto4play"]
